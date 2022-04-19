@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>webAR —— AR.js demo | Ursule blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言最近有个新的调研需求，需要做到使用手机摄像扫在产品上的包装，实现一个展开的动画模型效果。初步的讨论后还是使用成本更低的webAR，在简单的了解后选择了使用更广泛更轻量的AR.js。 AR.jsAR.js是一个用于Web上增强现实的轻量级库，具有基于标记和基于位置的AR等功能。AR类型有三种  图像跟踪，当摄像机找到2D图像时，可以在其顶部或附近显示某种内容。内容也可以是2D图像，GIF，3D模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webAR —— AR.js demo">
+<meta property="og:url" content="http://example.com/2021/03/06/webAR/index.html">
+<meta property="og:site_name" content="Ursule blog">
+<meta property="og:description" content="前言最近有个新的调研需求，需要做到使用手机摄像扫在产品上的包装，实现一个展开的动画模型效果。初步的讨论后还是使用成本更低的webAR，在简单的了解后选择了使用更广泛更轻量的AR.js。 AR.jsAR.js是一个用于Web上增强现实的轻量级库，具有基于标记和基于位置的AR等功能。AR类型有三种  图像跟踪，当摄像机找到2D图像时，可以在其顶部或附近显示某种内容。内容也可以是2D图像，GIF，3D模">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/images/202202/1.gif">
+<meta property="article:published_time" content="2021-03-06T08:13:13.000Z">
+<meta property="article:modified_time" content="2022-04-19T08:59:13.327Z">
+<meta property="article:author" content="Ursule">
+<meta property="article:tag" content="AR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/202202/1.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Ursule blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ursule blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-webAR" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/06/webAR/" class="article-date">
+  <time class="dt-published" datetime="2021-03-06T08:13:13.000Z" itemprop="datePublished">2021-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      webAR —— AR.js demo
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近有个新的调研需求，需要做到使用手机摄像扫在产品上的包装，实现一个展开的动画模型效果。初步的讨论后还是使用成本更低的webAR，在简单的了解后选择了使用更广泛更轻量的AR.js。</p>
+<h2 id="AR-js"><a href="#AR-js" class="headerlink" title="AR.js"></a>AR.js</h2><p>AR.js是一个用于Web上增强现实的轻量级库，具有基于标记和基于位置的AR等功能。<br>AR类型有三种</p>
+<ul>
+<li><strong>图像跟踪</strong>，当摄像机找到2D图像时，可以在其顶部或附近显示某种内容。内容也可以是2D图像，GIF，3D模型（也为动画）和2D视频。</li>
+<li><strong>标记跟踪</strong>，当摄像机找到标记时，可以显示一些内容（与图像跟踪相同）。标记非常稳定，但形状，颜色和大小受到限制。建议针对需要大量不同内容的标记的体验。<br>  标记有三种类型 <ul>
+<li>宏（Hiro）</li>
+<li>条码</li>
+<li>图案</li>
+</ul>
+</li>
+<li><strong>基于位置的AR</strong>，这种AR使用真实世界的位置来在用户设备上显示增强现实内容。</li>
+</ul>
+<p>AR.js使用jsartoolkit5进行跟踪，渲染库使用的是three.js或A-Frame。</p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>demo使用的是图像跟踪的形式，将需要识别的图片通过<code>NFT Marker Creator</code>工具获取需要的识别文件。工具有两个版本，<a target="_blank" rel="noopener" href="https://carnaux.github.io/NFT-Marker-Creator/#/">web版</a>和<a target="_blank" rel="noopener" href="https://github.com/Carnaux/NFT-Marker-Creator">node.js</a>版本。需要处理的图片文件小数量少的话推荐使用web版的。特别注意的一点是图片dpi越高对后面识别的成功率越高。通过工具获取三个文件的图像描述符后放入相对应的文件夹。</p>
+<p>这边方便起见，使用的是A-Frame，也可以使用three.js的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;aframevr&#x2F;aframe@1c2407b26c61958baa93967b5412487cd94b290b&#x2F;dist&#x2F;aframe-master.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  .arjs-loader &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    width: 100%;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    background-color: rgba(0, 0, 0, 0.8);</span><br><span class="line">    z-index: 9999;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">    align-items: center;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .arjs-loader div &#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    font-size: 1.25em;</span><br><span class="line">    color: white;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- rawgithack development URL --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;raw.githack.com&#x2F;AR-js-org&#x2F;AR.js&#x2F;master&#x2F;aframe&#x2F;build&#x2F;aframe-ar-nft.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;body style&#x3D;&quot;margin: 0px; overflow: hidden&quot;&gt;</span><br><span class="line">  &lt;!-- minimal loader shown until image descriptors are loaded --&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;arjs-loader&quot;&gt;</span><br><span class="line">    &lt;div&gt;Loading, please wait...&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;a-scene</span><br><span class="line">    vr-mode-ui&#x3D;&quot;enabled: false;&quot;</span><br><span class="line">    renderer&#x3D;&quot;logarithmicDepthBuffer: true;&quot;</span><br><span class="line">    embedded</span><br><span class="line">    arjs&#x3D;&quot;trackingMethod: best; sourceType: webcam; debugUIEnabled: false;&quot;</span><br><span class="line">  &gt;</span><br><span class="line">    &lt;!-- use rawgithack to retrieve the correct url for nft marker (see &#39;pinball&#39; below) --&gt;</span><br><span class="line">    &lt;a-nft type&#x3D;&quot;nft&quot; url&#x3D;&quot;.&#x2F;trex&#x2F;trex-image&#x2F;trex&quot; smooth&#x3D;&quot;true&quot; smoothCount&#x3D;&quot;10&quot; smoothTolerance&#x3D;&quot;0.01&quot; smoothThreshold&#x3D;&quot;5&quot;&gt;</span><br><span class="line">      &lt;a-entity</span><br><span class="line">        gltf-model&#x3D;&quot;https:&#x2F;&#x2F;arjs-cors-proxy.herokuapp.com&#x2F;https:&#x2F;&#x2F;raw.githack.com&#x2F;AR-js-org&#x2F;AR.js&#x2F;master&#x2F;aframe&#x2F;examples&#x2F;image-tracking&#x2F;nft&#x2F;trex&#x2F;scene.gltf&quot;</span><br><span class="line">        scale&#x3D;&quot;5 5 5&quot;</span><br><span class="line">        position&#x3D;&quot;50 150 -100&quot;</span><br><span class="line">      &gt;</span><br><span class="line">      &lt;&#x2F;a-entity&gt;</span><br><span class="line">    &lt;&#x2F;a-nft&gt;</span><br><span class="line">    &lt;a-entity camera&gt;&lt;&#x2F;a-entity&gt;</span><br><span class="line">  &lt;&#x2F;a-scene&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下</p>
+<!-- ![js引入效果](/images/202202/1.gif) -->
+<img src="/images/202202/1.gif"  height="330" width="495">
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>静态模型和动态模型呈现效果都还不错，但关键的问题是定位不太准确。镜头晃动或者换个角度，模型与定位图片的相对坐标变动太大。原因可能是图片的追踪无法像基于标记类型的那样准确。可能没办法在</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/06/webAR/" data-id="cl25xuh7d0005dsiyf9ll3mwq" data-title="webAR —— AR.js demo" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AR/" rel="tag">AR</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/09/webpack-config/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          webpack配置与优化
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AR/" rel="tag">AR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2-PHP-Laravel/" rel="tag">pm2 PHP Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AR/" style="font-size: 10px;">AR</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/pm2-PHP-Laravel/" style="font-size: 10px;">pm2 PHP Laravel</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/20/Design-Pattern-Factory-Method/">设计模式（一） 工厂方法模式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/19/photocheck-timeout/">解决图像检测demo的超时问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/11/pm2-artisan-queue/">使用pm2维护Laravel队列</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/28/Design-Pattern-Strategy/">设计模式（一） 策略模式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/vue3-VCA/">vue3 VCA</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Ursule<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

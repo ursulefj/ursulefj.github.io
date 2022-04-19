@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>设计模式（一） 策略模式 | Ursule blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="前言一直以来对设计模式很是头疼，在当初PHP提升路上学习了几次但依然难以运用之后容易遗忘。虽然平常开发过程中总是会注意一些架构的合理性，方便后续的扩展，但没有理论的支撑实施起来的方案还是问题很多。刚好最近团队在设计模式上一起学习提升，记录学习笔记并归纳在JavaScript和TypeScript中的运用。接下来，首先从策略模式开始 正文先从一个需求出发吧，如果在我的空间发言，需要满足几个条件才能发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式（一） 策略模式">
+<meta property="og:url" content="http://example.com/2021/04/28/Design-Pattern-Strategy/index.html">
+<meta property="og:site_name" content="Ursule blog">
+<meta property="og:description" content="前言一直以来对设计模式很是头疼，在当初PHP提升路上学习了几次但依然难以运用之后容易遗忘。虽然平常开发过程中总是会注意一些架构的合理性，方便后续的扩展，但没有理论的支撑实施起来的方案还是问题很多。刚好最近团队在设计模式上一起学习提升，记录学习笔记并归纳在JavaScript和TypeScript中的运用。接下来，首先从策略模式开始 正文先从一个需求出发吧，如果在我的空间发言，需要满足几个条件才能发">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-04-28T07:42:25.000Z">
+<meta property="article:modified_time" content="2021-05-20T02:29:15.449Z">
+<meta property="article:author" content="Ursule">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Ursule blog" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Ursule blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Design-Pattern-Strategy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/28/Design-Pattern-Strategy/" class="article-date">
+  <time class="dt-published" datetime="2021-04-28T07:42:25.000Z" itemprop="datePublished">2021-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      设计模式（一） 策略模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直以来对设计模式很是头疼，在当初PHP提升路上学习了几次但依然难以运用之后容易遗忘。虽然平常开发过程中总是会注意一些架构的合理性，方便后续的扩展，但没有理论的支撑实施起来的方案还是问题很多。刚好最近团队在设计模式上一起学习提升，记录学习笔记并归纳在JavaScript和TypeScript中的运用。接下来，首先从策略模式开始</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>先从一个需求出发吧，如果在我的空间发言，需要满足几个条件才能发送</p>
+<ul>
+<li>普通用户</li>
+<li>是否通过实名认证</li>
+<li>等级大于10</li>
+<li>发言数大于100</li>
+</ul>
+<p>从以往来看，大多都会使用<code>if else</code>来条件判断是否符合发言条件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCondition</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (data.role !== <span class="string">&#x27;user&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;不是普通用户&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!data.userAuth) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;未通过实名认证&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (data.level &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;等级不足&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (data.comment &lt; <span class="number">100</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;发言数不足&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>初步看好像可行，但实际上出现了这些问题</p>
+<ul>
+<li>后续条件不断增加下去checkCondition里需要不断增加判断</li>
+<li>函数内逻辑过于复杂，违反单一功能原则</li>
+<li>条件没法复用</li>
+<li>违反开闭原则</li>
+</ul>
+<p>为了解决这些问题，我们需要引入策略模式</p>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>定义 : 要实现某一个功能，有多种方案可以选择。我们定义策略，把它们一个个封装起来，并且使它们可以相互转换。</p>
+<p>使用策略模式修改后</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 策略</span></span><br><span class="line"><span class="keyword">var</span> strategies = &#123;</span><br><span class="line">  checkRole: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value === <span class="string">&#x27;user&#x27;</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  checkAuth: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;,</span><br><span class="line">  checkLevel: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value &lt; <span class="number">10</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  checkComment: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value &lt; <span class="number">100</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkOne</span>(<span class="params">name, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> strategies[name](value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这边我们先通过将条件判断的逻辑拆解出不同方法来，解决单一功能原则和复用的问题。后续为了满足开闭原则利用对象映射的灵活性将条件判断的方法置于strategies对象内。后面在调用时只需要通过方法名和参数就能使用相应方法了。</p>
+<p>接着进行优化，添加一个验证器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 校验规则</span></span><br><span class="line"><span class="keyword">var</span> Validator = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.cache = [];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加策略事件</span></span><br><span class="line">  <span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">value, method</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.cache.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> strategies[method](value);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 检查</span></span><br><span class="line">  <span class="built_in">this</span>.check = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.cache.length; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> valiFn = <span class="built_in">this</span>.cache[i];</span><br><span class="line">      <span class="keyword">var</span> data = valiFn(); <span class="comment">// 开始检查</span></span><br><span class="line">      <span class="keyword">if</span> (!data) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>设置一个用户进行测试</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> validator = <span class="keyword">new</span> Validator();</span><br><span class="line">  <span class="keyword">const</span> data = &#123;</span><br><span class="line">    role: <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">    auth: <span class="literal">true</span>,</span><br><span class="line">    level: <span class="number">8</span>,</span><br><span class="line">    comment: <span class="number">123</span></span><br><span class="line">  &#125;;</span><br><span class="line">  validator.add(data.role, <span class="string">&#x27;checkRole&#x27;</span>);</span><br><span class="line">  validator.add(data.auth, <span class="string">&#x27;checkAuth&#x27;</span>);</span><br><span class="line">  validator.add(data.level, <span class="string">&#x27;checkLevel&#x27;</span>);</span><br><span class="line">  validator.add(data.comment, <span class="string">&#x27;checkComment&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> result = validator.check();</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>最重要的是学习之后什么时候使用呢？</p>
+<ul>
+<li>各判断条件下的策略相互独立且可复用</li>
+<li>策略内部逻辑相对复杂</li>
+<li>策略需要灵活组合</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/28/Design-Pattern-Strategy/" data-id="cl25xuh790002dsiyc8cr5q8k" data-title="设计模式（一） 策略模式" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/05/11/pm2-artisan-queue/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          使用pm2维护Laravel队列
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/22/vue3-VCA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">vue3 VCA</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AR/" rel="tag">AR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2-PHP-Laravel/" rel="tag">pm2 PHP Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AR/" style="font-size: 10px;">AR</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/pm2-PHP-Laravel/" style="font-size: 10px;">pm2 PHP Laravel</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/05/20/Design-Pattern-Factory-Method/">设计模式（一） 工厂方法模式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/19/photocheck-timeout/">解决图像检测demo的超时问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/11/pm2-artisan-queue/">使用pm2维护Laravel队列</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/28/Design-Pattern-Strategy/">设计模式（一） 策略模式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/vue3-VCA/">vue3 VCA</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 Ursule<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

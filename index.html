@@ -4,17 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>Ursule blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+  <meta name="description" content="人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ursule blog">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="Ursule blog">
+<meta property="og:description" content="人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情">
+<meta property="og:locale">
+<meta property="article:author" content="Ursule">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Ursule blog" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -42,7 +44,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">Ursule blog</a>
       </h1>
       
     </div>
@@ -59,10 +61,10 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -71,10 +73,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Design-Pattern-Factory-Method" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/23/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-01-23T02:41:17.685Z" itemprop="datePublished">2021-01-23</time>
+    <a href="/2021/05/20/Design-Pattern-Factory-Method/" class="article-date">
+  <time class="dt-published" datetime="2021-05-20T02:21:10.000Z" itemprop="datePublished">2021-05-20</time>
 </a>
     
   </div>
@@ -85,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/01/23/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2021/05/20/Design-Pattern-Factory-Method/">设计模式（一） 工厂方法模式</a>
     </h1>
   
 
@@ -93,23 +95,379 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Pizza &#123;</span><br><span class="line">    Prepare: <span class="function">()=&gt;</span> <span class="built_in">String</span>,</span><br><span class="line">    Bake: <span class="function">()=&gt;</span> <span class="built_in">String</span>,</span><br><span class="line">    Cut: <span class="function">() =&gt;</span> <span class="built_in">String</span>,</span><br><span class="line">    Box: <span class="function">() =&gt;</span> <span class="built_in">String</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Pizza</span>()</span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> Prepare():<span class="built_in">String</span>;</span><br><span class="line">    <span class="keyword">abstract</span> Bake():<span class="built_in">String</span>;</span><br><span class="line">    <span class="keyword">abstract</span> Cut():<span class="built_in">String</span>;</span><br><span class="line">    <span class="keyword">abstract</span> Box():<span class="built_in">String</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PizzaStore</span>() </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> name;</span><br><span class="line">    OrderPizza: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">switch</span>(<span class="keyword">type</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/20/Design-Pattern-Factory-Method/" data-id="cl25xuh700000dsiycrsphsdv" data-title="设计模式（一） 工厂方法模式" class="article-share-link">Teilen</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-photocheck-timeout" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/19/photocheck-timeout/" class="article-date">
+  <time class="dt-published" datetime="2021-05-19T02:19:21.000Z" itemprop="datePublished">2021-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/19/photocheck-timeout/">解决图像检测demo的超时问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>图像检测的demo在测试时出现了在并发上去后出现<code>504 Gateway Time-out. The gateway did not receive a timely response from the upstream server or application.</code>的问题，导致识别失败，记录排查过程。</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>在部署了一个测试服务器后，安装相同版本的环境时出现新的问题。python执行命令时出现<code>ImportError: DLL load failed</code>找不到指定模块，刚开始以为是缺少dll文件，想查询缺少的文件进行补充，后面发现没办法补足。进一步查找方案时发现是pip下载包时需要在管理员模式下进行。</p>
+<p>环境解决以后问题复现不出来，查询Apache的错误日志，有查到一条<code>AH00326: Server ran out of threads to serve requests. Consider raising the ThreadsPerChild setting</code>的记录，于是在<code>httpd-mpm.conf</code>中提升了子线程的数量，但依然有超时问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mpm_winnt_module&gt;</span><br><span class="line">ThreadsPerChild 512 </span><br><span class="line">MaxRequestsPerChild 0</span><br><span class="line">&lt;&#x2F;IfModule&gt;</span><br></pre></td></tr></table></figure>
+<p>查询了Apache的访问日志，发现返回的状态码都是正常的，应该是请求被拦截了。Remote Address也不是服务器的地址。<br><img src="/images/202105/20210519105659.png" alt="headers"></p>
+<p>应该是阿里云cdn回源请求那边超时时间的设置问题</p>
+<p><img src="/images/202105/20210519112320.png" alt="回源请求超时时间"></p>
+<p>最后通过ip地址访问接口，绕开域名绑定的cdn回源方式解决这个问题</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>如果是服务器问题的一些配置。</p>
+<p>nginx访问出现504 Gateway Time-out，一般是由于程序执行时间过长导致响应超时，例如程序需要执行90秒，而nginx最大响应等待时间为30秒，这样就会出现超时。通常有以下几种情况导致</p>
+<p>1.程序在处理大量数据，导致等待超时。<br>2.程序中调用外部请求，而外部请求响应超时。<br>3.连接数据库失败而没有停止，死循环重新连。</p>
+<p>解决方法参考这篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/haibo0668/article/details/103869582/">文章</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/23/hello-world/" data-id="ckk946qyg000020vd70xpaowa" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/05/19/photocheck-timeout/" data-id="cl25xuh770001dsiyboftc7fa" data-title="解决图像检测demo的超时问题" class="article-share-link">Teilen</a>
       
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-pm2-artisan-queue" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/05/11/pm2-artisan-queue/" class="article-date">
+  <time class="dt-published" datetime="2021-05-11T06:58:04.000Z" itemprop="datePublished">2021-05-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/05/11/pm2-artisan-queue/">使用pm2维护Laravel队列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当前维护着的CTC效能平台项目需要升级，把几个子程序规整到一个平台上进行管理。以<code>web管理平台-&gt;PHP后端-&gt;C++数据层-&gt;子程序</code>形式组成，php后端与C++数据层中的通信才用socket协议。php的短生命周期，目前使用Laravel框架且不使用swoole的情况下采用框架内队列（queue）。队列进程是长生命周期的进程，socket获取C++提供的最新数据。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>但出现几种问题需要解决</p>
+<ul>
+<li>artisan命令是放在bat批处理文件内执行的，出错中止无法维护</li>
+<li>php的socket_read()每次执行占用了较大的内存并且没有释放，导致内存溢出</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>Laravel文档内的方案是使用Supervisor进行进程守护，但由于服务器是window系统，所以决定用pm2。</p>
+<p>先全局安装pm2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pm2 -g </span><br></pre></td></tr></table></figure>
+<p>安装pm2的windows服务，之后就可以在windows服务内多出一个pm2服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i pm2-windows-service -g</span><br><span class="line">pm2-service-install -n pm2</span><br></pre></td></tr></table></figure>
+
+<p>接下来需要配置需要执行的命令，参考这篇<a target="_blank" rel="noopener" href="https://subashbasnet.com.np/how-to-run-and-monitor-laravel-queue-using-pm2/">文章</a></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#laravel-queue-worker.yml</span></span><br><span class="line"><span class="attr">apps:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">laravel-queue-worker</span></span><br><span class="line">    <span class="attr">script:</span> <span class="string">artisan</span></span><br><span class="line">    <span class="attr">exec_mode:</span> <span class="string">fork</span></span><br><span class="line">    <span class="attr">interpreter:</span> <span class="string">php</span></span><br><span class="line">    <span class="attr">instances:</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">args:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">queue:work</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--tries=5</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--sleep=1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">--delay=3</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>内存泄漏的问题原计划是用设置jobs执行数量上限，退出后由pm2重启。但需要Laravel8才能支持，Laravel8还需要php7.3以上的版本支持，升级成本较高。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/05/11/pm2-artisan-queue/" data-id="cl25xuh7a0003dsiyfewcgq1d" data-title="使用pm2维护Laravel队列" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pm2-PHP-Laravel/" rel="tag">pm2 PHP Laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Design-Pattern-Strategy" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/28/Design-Pattern-Strategy/" class="article-date">
+  <time class="dt-published" datetime="2021-04-28T07:42:25.000Z" itemprop="datePublished">2021-04-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/28/Design-Pattern-Strategy/">设计模式（一） 策略模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直以来对设计模式很是头疼，在当初PHP提升路上学习了几次但依然难以运用之后容易遗忘。虽然平常开发过程中总是会注意一些架构的合理性，方便后续的扩展，但没有理论的支撑实施起来的方案还是问题很多。刚好最近团队在设计模式上一起学习提升，记录学习笔记并归纳在JavaScript和TypeScript中的运用。接下来，首先从策略模式开始</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>先从一个需求出发吧，如果在我的空间发言，需要满足几个条件才能发送</p>
+<ul>
+<li>普通用户</li>
+<li>是否通过实名认证</li>
+<li>等级大于10</li>
+<li>发言数大于100</li>
+</ul>
+<p>从以往来看，大多都会使用<code>if else</code>来条件判断是否符合发言条件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCondition</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (data.role !== <span class="string">&#x27;user&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;不是普通用户&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!data.userAuth) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;未通过实名认证&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (data.level &lt; <span class="number">10</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;等级不足&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (data.comment &lt; <span class="number">100</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;发言数不足&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>初步看好像可行，但实际上出现了这些问题</p>
+<ul>
+<li>后续条件不断增加下去checkCondition里需要不断增加判断</li>
+<li>函数内逻辑过于复杂，违反单一功能原则</li>
+<li>条件没法复用</li>
+<li>违反开闭原则</li>
+</ul>
+<p>为了解决这些问题，我们需要引入策略模式</p>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>定义 : 要实现某一个功能，有多种方案可以选择。我们定义策略，把它们一个个封装起来，并且使它们可以相互转换。</p>
+<p>使用策略模式修改后</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 策略</span></span><br><span class="line"><span class="keyword">var</span> strategies = &#123;</span><br><span class="line">  checkRole: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value === <span class="string">&#x27;user&#x27;</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  checkAuth: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;,</span><br><span class="line">  checkLevel: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value &lt; <span class="number">10</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  checkComment: <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value &lt; <span class="number">100</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkOne</span>(<span class="params">name, value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> strategies[name](value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这边我们先通过将条件判断的逻辑拆解出不同方法来，解决单一功能原则和复用的问题。后续为了满足开闭原则利用对象映射的灵活性将条件判断的方法置于strategies对象内。后面在调用时只需要通过方法名和参数就能使用相应方法了。</p>
+<p>接着进行优化，添加一个验证器</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 校验规则</span></span><br><span class="line"><span class="keyword">var</span> Validator = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.cache = [];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加策略事件</span></span><br><span class="line">  <span class="built_in">this</span>.add = <span class="function"><span class="keyword">function</span>(<span class="params">value, method</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.cache.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> strategies[method](value);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 检查</span></span><br><span class="line">  <span class="built_in">this</span>.check = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">this</span>.cache.length; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> valiFn = <span class="built_in">this</span>.cache[i];</span><br><span class="line">      <span class="keyword">var</span> data = valiFn(); <span class="comment">// 开始检查</span></span><br><span class="line">      <span class="keyword">if</span> (!data) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>设置一个用户进行测试</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> user = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> validator = <span class="keyword">new</span> Validator();</span><br><span class="line">  <span class="keyword">const</span> data = &#123;</span><br><span class="line">    role: <span class="string">&#x27;user&#x27;</span>,</span><br><span class="line">    auth: <span class="literal">true</span>,</span><br><span class="line">    level: <span class="number">8</span>,</span><br><span class="line">    comment: <span class="number">123</span></span><br><span class="line">  &#125;;</span><br><span class="line">  validator.add(data.role, <span class="string">&#x27;checkRole&#x27;</span>);</span><br><span class="line">  validator.add(data.auth, <span class="string">&#x27;checkAuth&#x27;</span>);</span><br><span class="line">  validator.add(data.level, <span class="string">&#x27;checkLevel&#x27;</span>);</span><br><span class="line">  validator.add(data.comment, <span class="string">&#x27;checkComment&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> result = validator.check();</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>最重要的是学习之后什么时候使用呢？</p>
+<ul>
+<li>各判断条件下的策略相互独立且可复用</li>
+<li>策略内部逻辑相对复杂</li>
+<li>策略需要灵活组合</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/28/Design-Pattern-Strategy/" data-id="cl25xuh790002dsiyc8cr5q8k" data-title="设计模式（一） 策略模式" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-vue3-VCA" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/22/vue3-VCA/" class="article-date">
+  <time class="dt-published" datetime="2021-04-22T08:19:24.000Z" itemprop="datePublished">2021-04-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/22/vue3-VCA/">vue3 VCA</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>之前看文章的时候有看到Vue Composition API但没有继续深入，最近看到尤大的回答中提及到了，然而不太熟悉，于是进行了系统的学习和总结。</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>Vue Composition API 是 Vue 3.0 的一个重要特性，和 React Hooks 一样，这是一种非常棒的逻辑组合/复用机制。据官方所说React Hooks是VCA的灵感来源，并且基于自己的数据响应式机制创建自己特色的逻辑复用原语。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/22/vue3-VCA/" data-id="cl25xuh7e0006dsiya51tfxod" data-title="vue3 VCA" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-webpack-config" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/09/webpack-config/" class="article-date">
+  <time class="dt-published" datetime="2021-04-09T09:51:35.000Z" itemprop="datePublished">2021-04-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/04/09/webpack-config/">webpack配置与优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在以往开发过程中有用到<code>vue-cli</code>、<code>create-react-app</code>等脚手架构建管理项目，只是在需要的时候查找相关问题。提升道路上还是有必要系统的进行学习和补充。</p>
+<h2 id="基本的配置"><a href="#基本的配置" class="headerlink" title="基本的配置"></a>基本的配置</h2><br>
+
+<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><p>首先创建就目录初始化npm<br><code>npm init</code></p>
+<p>下载webpack的两个包<br><code>npm i -D webpack webpack-cli</code></p>
+<p>配置package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;script&quot;:&#123;</span><br><span class="line">    &quot;build&quot;:&quot;webpack src&#x2F;main.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>npm run build</code>进行打包，在目录下生成dist文件夹</p>
+<h3 id="生成自定义配置"><a href="#生成自定义配置" class="headerlink" title="生成自定义配置"></a>生成自定义配置</h3><p>现在使用的是默认配置，接下来需要创建可自定义的配置文件。在build文件夹下创建<code>webpack.config.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line"></span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    mode:&#39;development&#39;, &#x2F;&#x2F; 开发模式</span><br><span class="line">    entry: path.resolve(__dirname,&#39;..&#x2F;src&#x2F;main.js&#39;),    &#x2F;&#x2F; 入口文件</span><br><span class="line">    output: &#123;</span><br><span class="line">        filename: &#39;output.js&#39;,      &#x2F;&#x2F; 打包后的文件名称</span><br><span class="line">        path: path.resolve(__dirname,&#39;..&#x2F;dist&#39;)  &#x2F;&#x2F; 打包后的目录</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置打包命令使用配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;script&quot;:&#123;</span><br><span class="line">    &quot;build&quot;:&quot;webpack --config build&#x2F;webpack.config.js&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打包之后的dist下的<code>main.js</code>就是实际运行的文件</p>
+<h3 id="配置html模板"><a href="#配置html模板" class="headerlink" title="配置html模板"></a>配置html模板</h3><p>js文件打包好之后，还需要在html文件中进行引用。</p>
+<blockquote>
+<p>通常在生产模式下考虑资源缓存的问题会在文件名中加入hash串，所以引用也不是固定的。因此可能这样配置</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F; 省略其他配置</span><br><span class="line">    output: &#123;</span><br><span class="line">      filename: &#39;[name].[hash:8].js&#39;,      &#x2F;&#x2F; 打包后的文件名称</span><br><span class="line">      path: path.resolve(__dirname,&#39;..&#x2F;dist&#39;)  &#x2F;&#x2F; 打包后的目录</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次的文件名不同，因此需要动态的将js文件引入到html中，使用<code>html-webpack-plugin</code></p>
+<p><code>npm i -D html-webpack-plugin</code></p>
+<p>配置文件如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">const path &#x3D; require(&#39;path&#39;);</span><br><span class="line">const HtmlWebpackPlugin &#x3D; require(&#39;html-webpack-plugin&#39;)</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    mode:&#39;development&#39;, &#x2F;&#x2F; 开发模式</span><br><span class="line">    entry: path.resolve(__dirname,&#39;..&#x2F;src&#x2F;main.js&#39;),    &#x2F;&#x2F; 入口文件</span><br><span class="line">    output: &#123;</span><br><span class="line">      filename: &#39;[name].[hash:8].js&#39;,      &#x2F;&#x2F; 打包后的文件名称</span><br><span class="line">      path: path.resolve(__dirname,&#39;..&#x2F;dist&#39;)  &#x2F;&#x2F; 打包后的目录</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">      new HtmlWebpackPlugin(&#123;</span><br><span class="line">        template:path.resolve(__dirname,&#39;..&#x2F;public&#x2F;index.html&#39;)</span><br><span class="line">      &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>打包后js文件自动引入到html文件中<br><img src="/images/202104/20210412171823.png" alt="js引入效果"></p>
+<h3 id="清理残留文件"><a href="#清理残留文件" class="headerlink" title="清理残留文件"></a>清理残留文件</h3><p>每次执行打包命令时之前的打包文件还会继续存在，不符合需要，因此需要在打包前清楚残留。<br><code>npm i -D clean-webpack-plugin</code></p>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const &#123;CleanWebpackPlugin&#125; &#x3D; require(&#39;clean-webpack-plugin&#39;)</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F; ...省略其他配置</span><br><span class="line">    plugins:[new CleanWebpackPlugin()]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引用CSS"><a href="#引用CSS" class="headerlink" title="引用CSS"></a>引用CSS</h3><p>除了js资源外也需要引入css文件，需要使用一些loader来解析css文件<br><code>npm i -D style-loader css-loader</code></p>
+<p>如果要使用less、scss等预处理语言，需要额外的loader进行解析，这里我们使用less<br><code>npm i -D less less-loader</code></p>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    &#x2F;&#x2F; ...省略其他配置</span><br><span class="line">    module:&#123;</span><br><span class="line">      rules:[</span><br><span class="line">        &#123;</span><br><span class="line">          test:&#x2F;\.css$&#x2F;,</span><br><span class="line">          use:[&#39;style-loader&#39;,&#39;css-loader&#39;] &#x2F;&#x2F; 从右向左解析原则</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          test:&#x2F;\.less$&#x2F;,</span><br><span class="line">          use:[&#39;style-loader&#39;,&#39;css-loader&#39;,&#39;less-loader&#39;] &#x2F;&#x2F; 从右向左解析原则</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="添加css前缀"><a href="#添加css前缀" class="headerlink" title="添加css前缀"></a>添加css前缀</h4><p><code>npm i -D postcss-loader autoprefixer</code></p>
+<p>配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    module:&#123;</span><br><span class="line">        rules:[</span><br><span class="line">            &#123;</span><br><span class="line">                test:&#x2F;\.less$&#x2F;,</span><br><span class="line">                use:[&#39;style-loader&#39;,&#39;css-loader&#39;,&#39;postcss-loader&#39;,&#39;less-loader&#39;] &#x2F;&#x2F; 从右向左解析原则</span><br><span class="line">           &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>有两种方式引入<code>autoprefixer</code><br>1.在项目根目录下创建一个<code>postcss.config.js</code>文件，配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    plugins: [require(&#39;autoprefixer&#39;)]  &#x2F;&#x2F; 引用该插件即可了</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.直接在<code>webpack.config.js</code>里配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    module:&#123;</span><br><span class="line">        rules:[&#123;</span><br><span class="line">            test:&#x2F;\.less$&#x2F;,</span><br><span class="line">            use:[&#39;style-loader&#39;,&#39;css-loader&#39;,&#123;</span><br><span class="line">                loader:&#39;postcss-loader&#39;,</span><br><span class="line">                options:&#123;</span><br><span class="line">                    plugins:[require(&#39;autoprefixer&#39;)]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,&#39;less-loader&#39;] &#x2F;&#x2F; 从右向左解析原则</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="拆分css"><a href="#拆分css" class="headerlink" title="拆分css"></a>拆分css</h4><p>使用<code>mini-css-extract-plugin</code>插件把css从js文件中提取出来</p>
+<p><code>npm i -D mini-css-extract-plugin</code></p>
+<p>配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const MiniCssExtractPlugin &#x3D; require(&quot;mini-css-extract-plugin&quot;);</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.less$&#x2F;,</span><br><span class="line">        use: [</span><br><span class="line">           MiniCssExtractPlugin.loader,</span><br><span class="line">          &#39;css-loader&#39;,</span><br><span class="line">          &#39;less-loader&#39;</span><br><span class="line">        ],</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new MiniCssExtractPlugin(&#123;</span><br><span class="line">        filename: &quot;[name].[hash].css&quot;,</span><br><span class="line">        chunkFilename: &quot;[id].css&quot;,</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引入图片、字体、视频等文件"><a href="#引入图片、字体、视频等文件" class="headerlink" title="引入图片、字体、视频等文件"></a>引入图片、字体、视频等文件</h3><p><code>file-loader</code>的主要功能是处理文件名，例如文件名中添加hash值，解析文件路径，并将文件移动到输出的目录中<br><code>url-loader</code> 一般与file-loader搭配使用，功能与 <code>file-loader</code> 类似，可以设置一定的文件大小内返回 base64 编码进行优化，否则使用 <code>file-loader</code> 将文件移动到输出的目录中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#x2F;&#x2F; ...</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.(jpe?g|png|gif)$&#x2F;i, &#x2F;&#x2F;图片文件</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &#39;url-loader&#39;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: 10240,</span><br><span class="line">              fallback: &#123;</span><br><span class="line">                loader: &#39;file-loader&#39;,</span><br><span class="line">                options: &#123;</span><br><span class="line">                    name: &#39;img&#x2F;[name].[hash:8].[ext]&#39;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$&#x2F;, &#x2F;&#x2F;媒体文件</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &#39;url-loader&#39;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: 10240,</span><br><span class="line">              fallback: &#123;</span><br><span class="line">                loader: &#39;file-loader&#39;,</span><br><span class="line">                options: &#123;</span><br><span class="line">                  name: &#39;media&#x2F;[name].[hash:8].[ext]&#39;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: &#x2F;\.(woff2?|eot|ttf|otf)(\?.*)?$&#x2F;i, &#x2F;&#x2F; 字体</span><br><span class="line">        use: [</span><br><span class="line">          &#123;</span><br><span class="line">            loader: &#39;url-loader&#39;,</span><br><span class="line">            options: &#123;</span><br><span class="line">              limit: 10240,</span><br><span class="line">              fallback: &#123;</span><br><span class="line">                loader: &#39;file-loader&#39;,</span><br><span class="line">                options: &#123;</span><br><span class="line">                  name: &#39;fonts&#x2F;[name].[hash:8].[ext]&#39;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="babel转义"><a href="#babel转义" class="headerlink" title="babel转义"></a>babel转义</h3><p><code>npm i -D babel-loader @babel/preset-env @babel/core</code><br>上面的<code>babel-loader</code>默认只会将ES6/ES7/ES8的语法进行转义，一些api无法进行转换，例如Promise、Maps、Set<br>因此还需要增加polyfill转换<br><code>npm i @babel/polyfill</code><br>配置如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; webpack.config.js</span><br><span class="line">const path &#x3D; require(&#39;path&#39;)</span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    entry: [&quot;@babel&#x2F;polyfill&quot;,path.resolve(__dirname,&#39;..&#x2F;src&#x2F;index.js&#39;)],    &#x2F;&#x2F; 入口文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/09/webpack-config/" data-id="cl25xuh7f0007dsiyevq44wwj" data-title="webpack配置与优化" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-webAR" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/03/06/webAR/" class="article-date">
+  <time class="dt-published" datetime="2021-03-06T08:13:13.000Z" itemprop="datePublished">2021-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/03/06/webAR/">webAR —— AR.js demo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近有个新的调研需求，需要做到使用手机摄像扫在产品上的包装，实现一个展开的动画模型效果。初步的讨论后还是使用成本更低的webAR，在简单的了解后选择了使用更广泛更轻量的AR.js。</p>
+<h2 id="AR-js"><a href="#AR-js" class="headerlink" title="AR.js"></a>AR.js</h2><p>AR.js是一个用于Web上增强现实的轻量级库，具有基于标记和基于位置的AR等功能。<br>AR类型有三种</p>
+<ul>
+<li><strong>图像跟踪</strong>，当摄像机找到2D图像时，可以在其顶部或附近显示某种内容。内容也可以是2D图像，GIF，3D模型（也为动画）和2D视频。</li>
+<li><strong>标记跟踪</strong>，当摄像机找到标记时，可以显示一些内容（与图像跟踪相同）。标记非常稳定，但形状，颜色和大小受到限制。建议针对需要大量不同内容的标记的体验。<br>  标记有三种类型 <ul>
+<li>宏（Hiro）</li>
+<li>条码</li>
+<li>图案</li>
+</ul>
+</li>
+<li><strong>基于位置的AR</strong>，这种AR使用真实世界的位置来在用户设备上显示增强现实内容。</li>
+</ul>
+<p>AR.js使用jsartoolkit5进行跟踪，渲染库使用的是three.js或A-Frame。</p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>demo使用的是图像跟踪的形式，将需要识别的图片通过<code>NFT Marker Creator</code>工具获取需要的识别文件。工具有两个版本，<a target="_blank" rel="noopener" href="https://carnaux.github.io/NFT-Marker-Creator/#/">web版</a>和<a target="_blank" rel="noopener" href="https://github.com/Carnaux/NFT-Marker-Creator">node.js</a>版本。需要处理的图片文件小数量少的话推荐使用web版的。特别注意的一点是图片dpi越高对后面识别的成功率越高。通过工具获取三个文件的图像描述符后放入相对应的文件夹。</p>
+<p>这边方便起见，使用的是A-Frame，也可以使用three.js的方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;aframevr&#x2F;aframe@1c2407b26c61958baa93967b5412487cd94b290b&#x2F;dist&#x2F;aframe-master.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">  .arjs-loader &#123;</span><br><span class="line">    height: 100%;</span><br><span class="line">    width: 100%;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 0;</span><br><span class="line">    left: 0;</span><br><span class="line">    background-color: rgba(0, 0, 0, 0.8);</span><br><span class="line">    z-index: 9999;</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">    align-items: center;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .arjs-loader div &#123;</span><br><span class="line">    text-align: center;</span><br><span class="line">    font-size: 1.25em;</span><br><span class="line">    color: white;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- rawgithack development URL --&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;raw.githack.com&#x2F;AR-js-org&#x2F;AR.js&#x2F;master&#x2F;aframe&#x2F;build&#x2F;aframe-ar-nft.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;body style&#x3D;&quot;margin: 0px; overflow: hidden&quot;&gt;</span><br><span class="line">  &lt;!-- minimal loader shown until image descriptors are loaded --&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;arjs-loader&quot;&gt;</span><br><span class="line">    &lt;div&gt;Loading, please wait...&lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;a-scene</span><br><span class="line">    vr-mode-ui&#x3D;&quot;enabled: false;&quot;</span><br><span class="line">    renderer&#x3D;&quot;logarithmicDepthBuffer: true;&quot;</span><br><span class="line">    embedded</span><br><span class="line">    arjs&#x3D;&quot;trackingMethod: best; sourceType: webcam; debugUIEnabled: false;&quot;</span><br><span class="line">  &gt;</span><br><span class="line">    &lt;!-- use rawgithack to retrieve the correct url for nft marker (see &#39;pinball&#39; below) --&gt;</span><br><span class="line">    &lt;a-nft type&#x3D;&quot;nft&quot; url&#x3D;&quot;.&#x2F;trex&#x2F;trex-image&#x2F;trex&quot; smooth&#x3D;&quot;true&quot; smoothCount&#x3D;&quot;10&quot; smoothTolerance&#x3D;&quot;0.01&quot; smoothThreshold&#x3D;&quot;5&quot;&gt;</span><br><span class="line">      &lt;a-entity</span><br><span class="line">        gltf-model&#x3D;&quot;https:&#x2F;&#x2F;arjs-cors-proxy.herokuapp.com&#x2F;https:&#x2F;&#x2F;raw.githack.com&#x2F;AR-js-org&#x2F;AR.js&#x2F;master&#x2F;aframe&#x2F;examples&#x2F;image-tracking&#x2F;nft&#x2F;trex&#x2F;scene.gltf&quot;</span><br><span class="line">        scale&#x3D;&quot;5 5 5&quot;</span><br><span class="line">        position&#x3D;&quot;50 150 -100&quot;</span><br><span class="line">      &gt;</span><br><span class="line">      &lt;&#x2F;a-entity&gt;</span><br><span class="line">    &lt;&#x2F;a-nft&gt;</span><br><span class="line">    &lt;a-entity camera&gt;&lt;&#x2F;a-entity&gt;</span><br><span class="line">  &lt;&#x2F;a-scene&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure>
+<p>效果如下</p>
+<!-- ![js引入效果](/images/202202/1.gif) -->
+<img src="/images/202202/1.gif"  height="330" width="495">
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>静态模型和动态模型呈现效果都还不错，但关键的问题是定位不太准确。镜头晃动或者换个角度，模型与定位图片的相对坐标变动太大。原因可能是图片的追踪无法像基于标记类型的那样准确。可能没办法在</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/03/06/webAR/" data-id="cl25xuh7d0005dsiyf9ll3mwq" data-title="webAR —— AR.js demo" class="article-share-link">Teilen</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AR/" rel="tag">AR</a></li></ul>
+
     </footer>
   </div>
   
@@ -128,15 +486,10 @@
 
   
     
-
-  
-    
-  
-    
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AR/" rel="tag">AR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2-PHP-Laravel/" rel="tag">pm2 PHP Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
     </div>
   </div>
 
@@ -144,12 +497,47 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AR/" style="font-size: 10px;">AR</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/pm2-PHP-Laravel/" style="font-size: 10px;">pm2 PHP Laravel</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2021/01/23/hello-world/">Hello World</a>
+            <a href="/2021/05/20/Design-Pattern-Factory-Method/">设计模式（一） 工厂方法模式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/19/photocheck-timeout/">解决图像检测demo的超时问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/11/pm2-artisan-queue/">使用pm2维护Laravel队列</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/28/Design-Pattern-Strategy/">设计模式（一） 策略模式</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/vue3-VCA/">vue3 VCA</a>
           </li>
         
       </ul>
@@ -165,7 +553,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2021 John Doe<br>
+      &copy; 2022 Ursule<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
