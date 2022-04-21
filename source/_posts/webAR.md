@@ -1,6 +1,7 @@
 ---
 title: webAR —— AR.js demo
 date: 2021-03-06 16:13:13
+categories: tech
 tags: AR
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: 设计模式（一） 工厂方法模式
 date: 2021-05-20 10:21:10
+categories: tech
 tags:
 ---
 

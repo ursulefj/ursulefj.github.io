@@ -1,6 +1,7 @@
 ---
 title: 解决图像检测demo的超时问题
 date: 2021-05-19 10:19:21
+categories: tech
 tags:
 ---
 

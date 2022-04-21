@@ -3,12 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Ursule blog
-subtitle: ''
+title: 暮色蒼然
+subtitle: 'Ursule blog'
 description: '人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情'
 keywords:
 author: Ursule
-language: zh
+language:
+  - zh-cn
+  - en
 timezone: ''
 
 # URL
@@ -67,9 +69,17 @@ index_generator:
   order_by: -date
 
 # Category & Tag
-default_category: uncategorized
+default_category: 技术
 category_map:
+  技术: tech
+  人文: huma
 tag_map:
+  PHP: php
+  Vue: vue
+  AR: ar
+  Webpack: webpack
+  Laravel: Laravel
+  pm2: pm2
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -98,7 +108,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: jsimple
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -106,3 +116,9 @@ deploy:
   type: 'git'
   repo: 'https://github.com/ursulefj/ursulefj.github.io.git'
   branch: [gh-pages]
+
+# Configuration for search module: hexo-generator-search
+search:
+  path: search.json
+  field: all
+  content: true

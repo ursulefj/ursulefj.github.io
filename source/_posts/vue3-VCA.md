@@ -1,6 +1,7 @@
 ---
 title: vue3 VCA
 date: 2021-04-22 16:19:24
+categories: tech
 tags: Vue
 ---
 ## 前言
