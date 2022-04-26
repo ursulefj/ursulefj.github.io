@@ -54,7 +54,7 @@ highlight:
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -69,10 +69,10 @@ index_generator:
   order_by: -date
 
 # Category & Tag
-default_category: 技术
+default_category: 前端
 category_map:
-  技术: tech
-  人文: huma
+  前端: frontend
+  后端: backend
 tag_map:
   PHP: php
   Vue: vue

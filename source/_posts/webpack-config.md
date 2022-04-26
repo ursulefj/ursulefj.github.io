@@ -1,7 +1,7 @@
 ---
 title: webpack配置与优化
 date: 2021-04-09 17:51:35
-categories: tech
+categories: frontend
 tags: webpack
 ---
 在以往开发过程中有用到`vue-cli`、`create-react-app`等脚手架构建管理项目，只是在需要的时候查找相关问题。提升道路上还是有必要系统的进行学习和补充。

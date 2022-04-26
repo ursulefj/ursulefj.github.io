@@ -1,7 +1,7 @@
 ---
 title: 使用pm2维护Laravel队列
 date: 2021-05-11 14:58:04
-categories: tech
+categories: backend
 tags: 
 - pm2
 - php

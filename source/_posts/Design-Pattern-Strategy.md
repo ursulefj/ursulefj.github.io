@@ -1,7 +1,7 @@
 ---
 title: 设计模式（一） 策略模式
 date: 2021-04-28 15:42:25
-categories: tech
+categories: frontend
 tags: 设计模式
 ---
 
