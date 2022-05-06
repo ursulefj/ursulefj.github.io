@@ -6,7 +6,7 @@
 title: 暮色蒼然
 subtitle: 'Ursule blog'
 description: '人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情'
-keywords:
+keywords: 前端 后端 技术博客
 author: Ursule
 language:
   - zh-cn
@@ -15,7 +15,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://example.com
+url: http://localhost:4000
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
