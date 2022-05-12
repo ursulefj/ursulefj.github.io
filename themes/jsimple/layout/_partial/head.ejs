@@ -1,0 +1,62 @@
+<!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=<%= config.url %>/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta name="author" content="<%= config.author %>">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="mobile-agent" content="format=html5; url=<%= config.url %>">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<% if (theme.csp_enable){ %>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<% } %>
+<% if (theme.favicon){ %>
+<%- favicon_tag(theme.favicon) %>
+<% } %>
+<%
+var siteTitle = page.title;
+if (is_archive()) {
+    siteTitle = __('archives');
+    if (is_month()) {
+        siteTitle += '- ' + page.year + '/' + page.month;
+    } else if (is_year()) {
+        siteTitle += '- ' + page.year;
+    }
+} else if (is_category()) {
+    siteTitle = __('categories') + ' - ' + page.category;
+} else if (is_tag()) {
+    siteTitle = __('tags') + ' - ' + page.tag;
+}
+%>
+<title><% if (siteTitle){ %><%= __(siteTitle.toLowerCase()) %> - <% } %><%= config.title %><% if (is_home()){ %> - <%= config.subtitle %><% } %></title>
+<%
+var keywords;
+if (page.keywords) {
+    keywords = page.keywords;
+} else {
+    keywords = config.keywords;
+}
+%>
+<meta name="keywords" content="<%= keywords %>">
+<%
+var description;
+if (page.description) {
+    description = page.description;
+} else {
+    description = config.description;
+}
+%>
+<meta name="description " content="<%= description %>">
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="<%= is_home() ? 'blog' : 'article' %>" />
+<meta property="og:title" content="<% if (siteTitle){ %><%= __(siteTitle.toLowerCase()) %> - <% } %><%= config.title %><% if (is_home()){ %> - <%= config.subtitle %><% } %>" />
+<meta property="og:description" content="<%= description %>" />
+<meta property="og:url" content="<%= config.url %>" />
+<meta property="og:site_name" content="<%= config.title %>" />
+
+<link rel="dns-prefetch" href="<%= config.url %>">
+<link rel="prefetch" href="<%= config.url %>">
+<link rel="prerender" href="<%= config.url %>">
+<link rel="stylesheet" href="/css/JSimple.min.css">
