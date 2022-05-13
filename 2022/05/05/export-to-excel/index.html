@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>webar —— ar.js demo - 暮色蒼然</title>
+<title>表格数据的展示和下载 - 暮色蒼然</title>
 
 <meta name="keywords" content="前端 后端 技术博客">
 
@@ -26,7 +26,7 @@
 
 <!-- Jetpack Open Graph Tags -->
 <meta property="og:type" content="article" />
-<meta property="og:title" content="webar —— ar.js demo - 暮色蒼然" />
+<meta property="og:title" content="表格数据的展示和下载 - 暮色蒼然" />
 <meta property="og:description" content="人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情" />
 <meta property="og:url" content="http://localhost:4000" />
 <meta property="og:site_name" content="暮色蒼然" />
@@ -150,86 +150,21 @@
                 <p><span class="label">作者</span>
                     <a href="https://ursulefj.github.io"
                        target="_blank">Ursule</a>
-                    <span title="最后编辑于&nbsp;2021-03-06">2021-03-06</span>
+                    <span title="最后编辑于&nbsp;2022-05-05">2022-05-05</span>
                 </p>
                 <p></p>
             </div>
-            <h2 class="post-title">webAR —— AR.js demo</h2>
+            <h2 class="post-title">表格数据的展示和下载</h2>
             <div class="post-meta">
-                本文共计2889个字 |
+                本文共计215个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近有个新的调研需求，需要做到使用手机摄像扫在产品上的包装，实现一个展开的动画模型效果。初步的讨论后还是使用成本更低的webAR，在简单的了解后选择了使用更广泛更轻量的AR.js。</p>
-<h2 id="AR-js"><a href="#AR-js" class="headerlink" title="AR.js"></a>AR.js</h2><p>AR.js是一个用于Web上增强现实的轻量级库，具有基于标记和基于位置的AR等功能。<br>AR类型有三种</p>
-<ul>
-<li><strong>图像跟踪</strong>，当摄像机找到2D图像时，可以在其顶部或附近显示某种内容。内容也可以是2D图像，GIF，3D模型（也为动画）和2D视频。</li>
-<li><strong>标记跟踪</strong>，当摄像机找到标记时，可以显示一些内容（与图像跟踪相同）。标记非常稳定，但形状，颜色和大小受到限制。建议针对需要大量不同内容的标记的体验。<br>  标记有三种类型 <ul>
-<li>宏（Hiro）</li>
-<li>条码</li>
-<li>图案</li>
-</ul>
-</li>
-<li><strong>基于位置的AR</strong>，这种AR使用真实世界的位置来在用户设备上显示增强现实内容。</li>
-</ul>
-<p>AR.js使用jsartoolkit5进行跟踪，渲染库使用的是three.js或A-Frame。</p>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><p>demo使用的是图像跟踪的形式，将需要识别的图片通过<code>NFT Marker Creator</code>工具获取需要的识别文件。工具有两个版本，<a target="_blank" rel="noopener" href="https://carnaux.github.io/NFT-Marker-Creator/#/">web版</a>和<a target="_blank" rel="noopener" href="https://github.com/Carnaux/NFT-Marker-Creator">node.js</a>版本。需要处理的图片文件小数量少的话推荐使用web版的。特别注意的一点是图片dpi越高对后面识别的成功率越高。通过工具获取三个文件的图像描述符后放入相对应的文件夹。</p>
-<p>这边方便起见，使用的是A-Frame，也可以使用three.js的方式</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;aframevr&#x2F;aframe@1c2407b26c61958baa93967b5412487cd94b290b&#x2F;dist&#x2F;aframe-master.min.js&quot;&gt;&lt;&#x2F;script&gt;
-
-&lt;style&gt;
-  .arjs-loader &#123;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  &#125;
-
-  .arjs-loader div &#123;
-    text-align: center;
-    font-size: 1.25em;
-    color: white;
-  &#125;
-&lt;&#x2F;style&gt;
-
-&lt;!-- rawgithack development URL --&gt;
-&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;raw.githack.com&#x2F;AR-js-org&#x2F;AR.js&#x2F;master&#x2F;aframe&#x2F;build&#x2F;aframe-ar-nft.js&quot;&gt;&lt;&#x2F;script&gt;
-
-&lt;body style&#x3D;&quot;margin: 0px; overflow: hidden&quot;&gt;
-  &lt;!-- minimal loader shown until image descriptors are loaded --&gt;
-  &lt;div class&#x3D;&quot;arjs-loader&quot;&gt;
-    &lt;div&gt;Loading, please wait...&lt;&#x2F;div&gt;
-  &lt;&#x2F;div&gt;
-  &lt;a-scene
-    vr-mode-ui&#x3D;&quot;enabled: false;&quot;
-    renderer&#x3D;&quot;logarithmicDepthBuffer: true;&quot;
-    embedded
-    arjs&#x3D;&quot;trackingMethod: best; sourceType: webcam; debugUIEnabled: false;&quot;
-  &gt;
-    &lt;!-- use rawgithack to retrieve the correct url for nft marker (see &#39;pinball&#39; below) --&gt;
-    &lt;a-nft type&#x3D;&quot;nft&quot; url&#x3D;&quot;.&#x2F;trex&#x2F;trex-image&#x2F;trex&quot; smooth&#x3D;&quot;true&quot; smoothCount&#x3D;&quot;10&quot; smoothTolerance&#x3D;&quot;0.01&quot; smoothThreshold&#x3D;&quot;5&quot;&gt;
-      &lt;a-entity
-        gltf-model&#x3D;&quot;https:&#x2F;&#x2F;arjs-cors-proxy.herokuapp.com&#x2F;https:&#x2F;&#x2F;raw.githack.com&#x2F;AR-js-org&#x2F;AR.js&#x2F;master&#x2F;aframe&#x2F;examples&#x2F;image-tracking&#x2F;nft&#x2F;trex&#x2F;scene.gltf&quot;
-        scale&#x3D;&quot;5 5 5&quot;
-        position&#x3D;&quot;50 150 -100&quot;
-      &gt;
-      &lt;&#x2F;a-entity&gt;
-    &lt;&#x2F;a-nft&gt;
-    &lt;a-entity camera&gt;&lt;&#x2F;a-entity&gt;
-  &lt;&#x2F;a-scene&gt;
-&lt;&#x2F;body&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>效果如下</p>
-<!-- ![js引入效果](/images/202202/1.gif) -->
-<img src="/images/202202/1.gif"  height="330" width="495">
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>静态模型和动态模型呈现效果都还不错，但关键的问题是定位不太准确。镜头晃动或者换个角度，模型与定位图片的相对坐标变动太大。原因浏览器的算力确实还不足以与客户端去媲美，图片的图像识别与追踪无法像基于标记类型的那样准确。由于基于移动端的浏览器进行测试配置。可能没办法在</p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>某管控后台需要进行生产数据的展示和报表，此前都是又管理人员进行统计计算。对生产采数数据筛选，并展示到网页端，提供下载导出功能。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>需求核心问题点是需要显示表格模板上的格式，且后端获取数据进行统计筛选需要的时间过长。</p>
+<h3 id="table组件"><a href="#table组件" class="headerlink" title="table组件"></a>table组件</h3><p>原本是想按照用常规的table组件然后拆分每个表格单独展示，但这种方式无法很好的展示表格中的合并单元格，样式会很奇怪后面决定寻找其他方案。</p>
+<h3 id="officeapps"><a href="#officeapps" class="headerlink" title="officeapps"></a>officeapps</h3><p>通过微软的web在线办公工具展示</p>
 
             
                 
@@ -243,7 +178,7 @@
         
         <div class="post-tags">标签：
             
-            <a href="/tags/ar/">AR</a>
+            <a href="/tags/vue/">vue</a>
             
         </div>
         

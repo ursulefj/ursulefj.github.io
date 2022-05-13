@@ -1,107 +1,173 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>解决图像检测demo的超时问题 | Ursule blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="前言图像检测的demo在测试时出现了在并发上去后出现504 Gateway Time-out. The gateway did not receive a timely response from the upstream server or application.的问题，导致识别失败，记录排查过程。 过程在部署了一个测试服务器后，安装相同版本的环境时出现新的问题。python执行命令时出现Im">
-<meta property="og:type" content="article">
-<meta property="og:title" content="解决图像检测demo的超时问题">
-<meta property="og:url" content="http://example.com/2021/05/19/photocheck-timeout/index.html">
-<meta property="og:site_name" content="Ursule blog">
-<meta property="og:description" content="前言图像检测的demo在测试时出现了在并发上去后出现504 Gateway Time-out. The gateway did not receive a timely response from the upstream server or application.的问题，导致识别失败，记录排查过程。 过程在部署了一个测试服务器后，安装相同版本的环境时出现新的问题。python执行命令时出现Im">
-<meta property="og:locale">
-<meta property="og:image" content="http://example.com/images/202105/20210519105659.png">
-<meta property="og:image" content="http://example.com/images/202105/20210519112320.png">
-<meta property="article:published_time" content="2021-05-19T02:19:21.000Z">
-<meta property="article:modified_time" content="2021-05-21T07:49:27.492Z">
-<meta property="article:author" content="Ursule">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/202105/20210519105659.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Ursule blog" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://localhost:4000/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta name="author" content="Ursule">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://localhost:4000">
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>解决图像检测demo的超时问题 - 暮色蒼然</title>
+
+<meta name="keywords" content="前端 后端 技术博客">
+
+<meta name="description " content="人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情">
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="解决图像检测demo的超时问题 - 暮色蒼然" />
+<meta property="og:description" content="人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情" />
+<meta property="og:url" content="http://localhost:4000" />
+<meta property="og:site_name" content="暮色蒼然" />
+
+<link rel="dns-prefetch" href="http://localhost:4000">
+<link rel="prefetch" href="http://localhost:4000">
+<link rel="prerender" href="http://localhost:4000">
+<link rel="stylesheet" href="/css/JSimple.min.css">
+    <script type="text/javascript">
+        (function() {
+            let jsi_config = {
+                rootUrl: 'http://localhost:4000/',
+                isPost: 'true',
+                buildingTime: '01/23/2020',
+                snsQRCode: '',
+                donateImg: '',
+                readMode: 'day',
+                localSearch: { dbPath: '' }
+            };
+            
+                jsi_config.localSearch = {
+                    dbPath: '/search.json',
+                    trigger: 'auto',
+                    topN: '1',
+                    unescape: 'false'
+                }
+            
+            window.jsi_config = jsi_config;
+        })()
+    </script>
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+<script src="/js/SimpleCore.min.js"></script>
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
 <meta name="generator" content="Hexo 5.3.0"></head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Ursule blog</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="Ursule">Ursule</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>首页</span></a>
+        <a href="/archives" title="归档"><i class="fa fa-archives"></i><span>归档</span></a>
+        <a href="/tags" title="标签"><i class="fa fa-tags"></i><span>标签</span></a>
+        <!-- custom single page of menus -->
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
+    </nav>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-photocheck-timeout" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/05/19/photocheck-timeout/" class="article-date">
-  <time class="dt-published" datetime="2021-05-19T02:19:21.000Z" itemprop="datePublished">2021-05-19</time>
-</a>
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+</div>
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <img class="cover-img" src="https://shuoit.net/images/cover-day.jpg" alt="cover-img" loading="lazy" />
+    <div class="cover-info">
         
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      解决图像检测demo的超时问题
-    </h1>
-  
+        <h1 class="cover-siteName">暮色蒼然</h1>
+        <h3 class="cover-siteTitle">Ursule blog</h3>
+        <p class="cover-siteDesc">人生就像一场旅行，不在乎目的地，在乎的只是沿途的风景，以及看风景的心情</p>
+        <div class="cover-sns">
+            
+    &nbsp;&nbsp;<div class="btn btn-twitter">
+        <a href="https://twitter.com/ursule_pp" target="_blank" title="twitter" ref="friend">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </div>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>图像检测的demo在测试时出现了在并发上去后出现<code>504 Gateway Time-out. The gateway did not receive a timely response from the upstream server or application.</code>的问题，导致识别失败，记录排查过程。</p>
+    &nbsp;&nbsp;<div class="btn btn-github">
+        <a href="https://github.com/ursulefj" target="_blank" title="github" ref="friend">
+            <i class="fa fa-github"></i>
+        </a>
+    </div>
+
+    &nbsp;&nbsp;<div class="btn btn-weixin">
+        <a href="wxid_emrvf7znlx4n22" target="_blank" title="weixin" ref="friend">
+            <i class="fa fa-weixin"></i>
+        </a>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最近</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/frontend" data-name="前端">前端</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/backend" data-name="后端">后端</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <input type="text"
+               readonly="readonly"
+               id="local-search-input-tip"
+               placeholder="读物检索~" />
+        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
+    </form>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://ursulefj.github.io"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://ursulefj.github.io"
+                       target="_blank">Ursule</a>
+                    <span title="最后编辑于&nbsp;2021-05-19">2021-05-19</span>
+                </p>
+                <p></p>
+            </div>
+            <h2 class="post-title">解决图像检测demo的超时问题</h2>
+            <div class="post-meta">
+                本文共计893个字 |
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>图像检测的demo在测试时出现了在并发上去后出现<code>504 Gateway Time-out. The gateway did not receive a timely response from the upstream server or application.</code>的问题，导致识别失败，记录排查过程。</p>
 <h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>在部署了一个测试服务器后，安装相同版本的环境时出现新的问题。python执行命令时出现<code>ImportError: DLL load failed</code>找不到指定模块，刚开始以为是缺少dll文件，想查询缺少的文件进行补充，后面发现没办法补足。进一步查找方案时发现是pip下载包时需要在管理员模式下进行。</p>
 <p>环境解决以后问题复现不出来，查询Apache的错误日志，有查到一条<code>AH00326: Server ran out of threads to serve requests. Consider raising the ThreadsPerChild setting</code>的记录，于是在<code>httpd-mpm.conf</code>中提升了子线程的数量，但依然有超时问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule mpm_winnt_module&gt;</span><br><span class="line">ThreadsPerChild 512 </span><br><span class="line">MaxRequestsPerChild 0</span><br><span class="line">&lt;&#x2F;IfModule&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;IfModule mpm_winnt_module&gt;
+ThreadsPerChild 512 
+MaxRequestsPerChild 0
+&lt;&#x2F;IfModule&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>查询了Apache的访问日志，发现返回的状态码都是正常的，应该是请求被拦截了。Remote Address也不是服务器的地址。<br><img src="/images/202105/20210519105659.png" alt="headers"></p>
 <p>应该是阿里云cdn回源请求那边超时时间的设置问题</p>
 <p><img src="/images/202105/20210519112320.png" alt="回源请求超时时间"></p>
@@ -111,148 +177,75 @@
 <p>1.程序在处理大量数据，导致等待超时。<br>2.程序中调用外部请求，而外部请求响应超时。<br>3.连接数据库失败而没有停止，死循环重新连。</p>
 <p>解决方法参考这篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/haibo0668/article/details/103869582/">文章</a></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/05/19/photocheck-timeout/" data-id="cl25xuh770001dsiyboftc7fa" data-title="解决图像检测demo的超时问题" class="article-share-link">Teilen</a>
-      
-      
-      
-    </footer>
-  </div>
-  
+            
+                
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+        </div>
+        
+    </article>
     
-<nav id="article-nav">
-  
-    <a href="/2021/05/20/Design-Pattern-Factory-Method/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
-      <div class="article-nav-title">
-        
-          设计模式（一） 工厂方法模式
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/05/11/pm2-artisan-queue/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">使用pm2维护Laravel队列</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
-        
-          <aside id="sidebar">
-  
+        <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
     
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AR/" rel="tag">AR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pm2-PHP-Laravel/" rel="tag">pm2 PHP Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
+</div>
+
+
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner" style="text-align: center">
+        <p>
+            <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="帮助" >帮助</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友链">友链</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/sitemap.xml" title="地图">地图</a>
+        </p>
+        <p>
+            本站已建立&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbsp天，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议创作</a><br/>
+            ©2017-<span id="cpYear"></span> 基于&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
+            ，主题采用&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
+            ，作者&nbsp<a href="https://ursulefj.github.io" target="_blank" rel="friend">Ursule</a>
+            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
+            
+        </p>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AR/" style="font-size: 10px;">AR</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/pm2-PHP-Laravel/" style="font-size: 10px;">pm2 PHP Laravel</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/05/20/Design-Pattern-Factory-Method/">设计模式（一） 工厂方法模式</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/19/photocheck-timeout/">解决图像检测demo的超时问题</a>
-          </li>
-        
-          <li>
-            <a href="/2021/05/11/pm2-artisan-queue/">使用pm2维护Laravel队列</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/28/Design-Pattern-Strategy/">设计模式（一） 策略模式</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/22/vue3-VCA/">vue3 VCA</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 Ursule<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-
+</div>
+<!-- search pop -->
+<div class="popup search-popup local-search-popup">
+    <div class="local-search-header clearfix">
+        <span class="search-icon">
+            <i class="fa fa-search"></i>
+        </span>
+        <span class="popup-btn-close">
+            <i class="fa fa-times-circle"></i>
+        </span>
+        <div class="local-search-input-wrapper">
+            <input id="local-search-input"
+                   spellcheck="false"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="请输入查询关键词"/>
+        </div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+    <div id="local-search-result"></div>
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
 
 
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>
