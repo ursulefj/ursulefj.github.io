@@ -25,11 +25,7 @@
                 <%- partial('_widget/ads/adSense') %>
             <% } %>
         </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> <%= __('donate') %>
-            </a>
-        </div>
+       
         <% if (post.tags){ %>
         <div class="post-tags"><%= __('tags') %>：
             <% post.tags.each(function(tag){ %>
